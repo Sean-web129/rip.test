@@ -5,34 +5,38 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>RPI — Relationship Index Test (Demo)</title>
 <style>
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; padding:20px; background:#fff; color:#111; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin:0; padding:20px; background:#fff; color:#111; }
   .card { max-width:820px; margin:12px auto; border:1px solid #eee; border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.03); }
-  h1 { margin:0 0 8px; font-size:20px; color:#d6336c; }
+  h1 { margin:0 0 8px; font-size:22px; color:#d6336c; }
   p.lead { margin:6px 0 18px; color:#444; }
-  .question { margin:14px 0; }
-  .q-title { margin-bottom:6px; font-weight:600; }
+  .question { margin:16px 0; }
+  .q-title { margin-bottom:8px; font-weight:600; }
   .scale { display:flex; gap:8px; flex-wrap:wrap; }
   .scale label { background:#f6f6f6; padding:8px 10px; border-radius:8px; cursor:pointer; user-select:none; border:1px solid transparent; }
   .scale input { display:none; }
-  .scale input:checked + span { background:#ffdfe9; border-color:#f0a3c0; }
-  .controls { display:flex; gap:10px; margin-top:16px; }
-  button { padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:600; }
+  .scale input:checked + span { background:#ffdfe9; border-color:#e68ab1; }
+  .controls { display:flex; gap:12px; margin-top:18px; }
+  button { padding:10px 16px; border-radius:10px; border:0; cursor:pointer; font-weight:600; font-size:15px; }
   .primary { background:#ff3b61; color:white; }
   .secondary { background:#f1f1f1; color:#333; }
-  .result { margin-top:18px; padding:14px; border-radius:10px; background:#fff7fb; border:1px solid #ffd8e8; }
-  .subscore { margin:6px 0; }
-  .small { font-size:13px; color:#666; }
+  .result { margin-top:20px; padding:16px; border-radius:12px; background:#fff7fb; border:1px solid #ffd8e8; }
+  .subscore { margin:8px 0; }
   .footer { font-size:12px; color:#666; margin-top:14px; }
-  @media (max-width:420px){ .card{padding:12px} h1{font-size:18px} }
+  @media (max-width:480px){
+    .card{padding:14px}
+    h1{font-size:20px}
+  }
 </style>
 </head>
+
 <body>
 <div class="card" id="app">
-  <h1>RPI — Relationship Desire Index (Demo)</h1>
-  <p class="lead">Quick psychological test measuring control, jealousy, emotional dependence, and insecurity. (Demo version)</p>
+  <h1>RPI — Relationship Index Test (Demo)</h1>
+  <p class="lead">A quick 8-item psychological insight tool measuring control, jealousy, dependence & insecurity.</p>
 
   <form id="quiz">
-    <!-- We'll supply 8 example items. In real product replace with your full set and scoring mapping -->
+
+    <!-- Q1 -->
     <div class="question" data-key="control">
       <div class="q-title">1. I try to control who my partner talks to.</div>
       <div class="scale">
@@ -44,8 +48,9 @@
       </div>
     </div>
 
+    <!-- Q2 -->
     <div class="question" data-key="jealousy">
-      <div class="q-title">2. I feel very jealous when my partner talks to others.</div>
+      <div class="q-title">2. I feel jealous when my partner talks to others.</div>
       <div class="scale">
         <label><input type="radio" name="q2" value="1"><span>1</span></label>
         <label><input type="radio" name="q2" value="2"><span>2</span></label>
@@ -55,6 +60,7 @@
       </div>
     </div>
 
+    <!-- Q3 -->
     <div class="question" data-key="dependence">
       <div class="q-title">3. I rely on my partner to feel emotionally stable.</div>
       <div class="scale">
@@ -66,6 +72,7 @@
       </div>
     </div>
 
+    <!-- Q4 -->
     <div class="question" data-key="insecurity">
       <div class="q-title">4. I often worry that my relationship is not secure.</div>
       <div class="scale">
@@ -77,8 +84,9 @@
       </div>
     </div>
 
-    <!-- Extra items to make scoring range wider -->
-    <div class="question" data-key="control"><div class="q-title">5. I tell my partner what to wear or how to behave.</div>
+    <!-- Q5 -->
+    <div class="question" data-key="control">
+      <div class="q-title">5. I tell my partner what to wear or how to behave.</div>
       <div class="scale">
         <label><input type="radio" name="q5" value="1"><span>1</span></label>
         <label><input type="radio" name="q5" value="2"><span>2</span></label>
@@ -88,7 +96,9 @@
       </div>
     </div>
 
-    <div class="question" data-key="jealousy"><div class="q-title">6. I check my partner's phone or messages without permission.</div>
+    <!-- Q6 -->
+    <div class="question" data-key="jealousy">
+      <div class="q-title">6. I check my partner's phone or messages without permission.</div>
       <div class="scale">
         <label><input type="radio" name="q6" value="1"><span>1</span></label>
         <label><input type="radio" name="q6" value="2"><span>2</span></label>
@@ -98,7 +108,9 @@
       </div>
     </div>
 
-    <div class="question" data-key="dependence"><div class="q-title">7. I feel anxious when my partner is not around.</div>
+    <!-- Q7 -->
+    <div class="question" data-key="dependence">
+      <div class="q-title">7. I feel anxious when my partner is not around.</div>
       <div class="scale">
         <label><input type="radio" name="q7" value="1"><span>1</span></label>
         <label><input type="radio" name="q7" value="2"><span>2</span></label>
@@ -108,7 +120,9 @@
       </div>
     </div>
 
-    <div class="question" data-key="insecurity"><div class="q-title">8. I worry my partner might leave me even if there's no sign.</div>
+    <!-- Q8 -->
+    <div class="question" data-key="insecurity">
+      <div class="q-title">8. I worry my partner might leave me even without signs.</div>
       <div class="scale">
         <label><input type="radio" name="q8" value="1"><span>1</span></label>
         <label><input type="radio" name="q8" value="2"><span>2</span></label>
@@ -122,102 +136,15 @@
       <button type="button" id="calc" class="primary">Get my report</button>
       <button type="button" id="reset" class="secondary">Reset</button>
     </div>
+
   </form>
 
   <div id="output"></div>
 
   <div class="footer">
-    <div class="small">This is a demo tool for entertainment/insight only. Not a clinical diagnosis.</div>
+    This tool is for entertainment/insight only. Not a clinical diagnosis.
   </div>
 </div>
 
 <script>
   const mapping = {
-    // map questions to subscales (q indices 1..8)
-    control: ["q1","q5"],
-    jealousy: ["q2","q6"],
-    dependence: ["q3","q7"],
-    insecurity: ["q4","q8"]
-  };
-
-  function readValue(name){
-    const el = document.querySelector('input[name="'+name+'"]:checked');
-    return el ? Number(el.value) : null;
-  }
-
-  function computeSubscore(keys){
-    let sum=0, count=0;
-    keys.forEach(q => {
-      const v = readValue(q);
-      if(v!==null){ sum += v; count++; }
-    });
-    return { sum, count, avg: count? (sum / count) : 0 };
-  }
-
-  function interpret(avg){
-    if(avg >= 4.2) return "High — may need attention";
-    if(avg >= 3.2) return "Moderate — something to be aware of";
-    if(avg >= 2.2) return "Low-moderate";
-    return "Low";
-  }
-
-  document.getElementById('calc').addEventListener('click', () => {
-    // check all answered
-    const names = ["q1","q2","q3","q4","q5","q6","q7","q8"];
-    for(let n of names){
-      if(!document.querySelector('input[name="'+n+'"]:checked')){
-        alert("Please answer all questions (demo requires 8 answers).");
-        return;
-      }
-    }
-
-    // compute
-    const results = {};
-    for(const scale in mapping){
-      const res = computeSubscore(mapping[scale]);
-      results[scale] = res;
-    }
-
-    // build report
-    const out = document.getElementById('output');
-    out.innerHTML = '';
-    const container = document.createElement('div');
-    container.className = 'result';
-    const title = document.createElement('div');
-    title.innerHTML = '<strong>Your RPI quick report</strong>';
-    container.appendChild(title);
-
-    for(const scale in results){
-      const r = results[scale];
-      const row = document.createElement('div');
-      row.className = 'subscore';
-      row.innerHTML = `<strong>${scale.charAt(0).toUpperCase()+scale.slice(1)}</strong>: average ${r.avg.toFixed(2)} — ${interpret(r.avg)}`;
-      container.appendChild(row);
-    }
-
-    // summary
-    const totalAvg = (Object.values(results).reduce((s,rr)=>s+rr.avg,0)) / Object.keys(results).length;
-    const summary = document.createElement('div');
-    summary.style.marginTop = '8px';
-    summary.innerHTML = `<em>Overall average: ${totalAvg.toFixed(2)} — ${interpret(totalAvg)}</em>`;
-    container.appendChild(summary);
-
-    // add Print/Save button
-    const btn = document.createElement('button');
-    btn.className = 'primary';
-    btn.textContent = 'Print / Save Report';
-    btn.style.marginTop = '10px';
-    btn.onclick = ()=> window.print();
-    container.appendChild(btn);
-
-    out.appendChild(container);
-  });
-
-  document.getElementById('reset').addEventListener('click', () => {
-    document.getElementById('quiz').reset();
-    document.getElementById('output').innerHTML = '';
-  });
-</script>
-</body>
-</html>
-
